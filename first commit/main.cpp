@@ -1,6 +1,69 @@
 #include <iostream>
-
+#include <stdlib.h>
+#include <cstring>
 using namespace std;
+int nivel,y,n,z,ok;
+bool co;
+char c,d,g[18][29],r,trap[255],difc[255];
+short a[3][3],bad,p,com,p1,p2,s1,s2,g1,g2,s;
+short PZ(int x)
+{
+    int t=0;
+    while(x>9)
+    {
+        x=x/10;t++;
+    }
+    return t;
+}
+void HumanInsertion(int pos,char symbol);
+void ComputerInsertion(char symbol,int level);
+bool PrintWinner2();
+void PrintEgalitate();
+void GameFrame();
+void afiseaza();
+bool PrintWinner1();
+bool MakeProblems(char symbol);
+bool SolveProblems(char symbol);
+void Corner();
+bool Cross();
+void ChosenOne();
+bool SemiCross();
+bool Across();
+bool L();
+bool Bad();
+bool Awkward();
+int FirstInputVerification (char read[])
+{
+    if(strlen(read)>1) return 0;
+    else if (read[0]=='1') return 1;
+        else if (read[0]=='2') return 2;
+        else return 0;
+}
+
+int GeneralInput(char input[])
+{
+    if (strlen(input)>1) return 0;
+    else if (input[0]=='0') return 0;
+     else if (input[0]=='1') return 1;
+      else if (input[0]=='2') return 2;
+       else if (input[0]=='3') return 3;
+        else if (input[0]=='4') return 4;
+         else if (input[0]=='5') return 5;
+          else if (input[0]=='6') return 6;
+           else if (input[0]=='7') return 7;
+            else if (input[0]=='8') return 8;
+             else if (input[0]=='9') return 9;
+             else return 0;
+}
+int DificultyChoose(char difc[])
+{
+    if(strlen(difc)>1) return 0;
+        else if (difc[0]=='1') return 1;
+            else if (difc[0]=='2') return 2;
+                else if (difc[0]=='3') return 3;
+                    else return 0;
+}
+
 void HumanInsertion(int pos,char symbol)
 {
     if(symbol=='X')
@@ -107,6 +170,238 @@ void afiseaza()
         }
     cout<<"\n";
 }
+void ComputerInsertion(char symbol,int level)
+{
+    int x;
+
+    if(level==1)
+    {
+        x=rand()%9+1;
+        while(a[(x-1)/3][(x+2)%3]!=-1)
+        {
+            x=rand()%9+1;
+        }
+        HumanInsertion(x,symbol);
+        system("cls");
+        afiseaza();
+        cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+        cout<<" pentru a-ti face mutarea.\n ";
+        cin>>r;
+    }
+    else
+    {
+        if(n==1)
+        {
+        HumanInsertion(5,symbol);
+        system("cls");
+        afiseaza();
+        cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+        cout<<" pentru a-ti face mutarea.\n ";
+        cin>>r;
+        }
+        if(n==2&&a[1][1]!=-1&&level==2)
+        {
+            ComputerInsertion(symbol,1);
+        }
+        if(n==2&&a[1][1]!=-1&&level==3)
+        {
+            Corner();
+            system("cls");
+            afiseaza();
+            cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+            cout<<" pentru a-ti face mutarea.\n ";
+            cin>>r;
+        }
+        if(n==2&&a[1][1]==-1)
+        {
+        HumanInsertion(5,symbol);
+        system("cls");
+        afiseaza();
+        cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+        cout<<" pentru a-ti face mutarea.\n ";
+        cin>>r;
+        }
+        if(level==2&&n>2)
+        {
+            if(MakeProblems(symbol))
+            {
+                system("cls");
+                afiseaza();
+                cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                cout<<" pentru a-ti face mutarea.\n ";
+                cin>>r;
+            }
+            else
+            {
+                if(SolveProblems(symbol))
+                {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+                else
+                {
+                ComputerInsertion(symbol,1);
+                }
+            }
+        }
+        if(level==3)
+        {
+            if(n==3)
+            {
+                if(Cross())
+                {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+                else
+                {
+                    ChosenOne();
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+            }
+            if(n==5)
+            {
+                if(!co)
+                {
+                    ComputerInsertion(symbol,2);
+                }
+                else
+                {
+                    if(SolveProblems(symbol))
+                    {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                    }
+                    else
+                    if(SemiCross())
+                    {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                    }
+                }
+            }
+            if(n==7)
+                ComputerInsertion(symbol,2);
+            if(n==4)
+            {
+                if(Across())
+                {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+                else
+                {
+                    if(Bad())
+                    {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                    }
+                    else
+                    {
+
+                        if(L())
+                        {
+                        system("cls");
+                        afiseaza();
+                        cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                        cout<<" pentru a-ti face mutarea.\n ";
+                        cin>>r;
+                        }
+                        else
+                        {
+                        if(Awkward())
+                        {
+                        system("cls");
+                        afiseaza();
+                        cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                        cout<<" pentru a-ti face mutarea.\n ";
+                        cin>>r;
+
+                        }
+                            else
+                            {
+                                if(SolveProblems(symbol))
+                                {
+                                system("cls");
+                                afiseaza();
+                                cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                                cout<<" pentru a-ti face mutarea.\n ";
+                                cin>>r;
+                                }
+                                else
+                                {
+                                Corner();
+                                system("cls");
+                                afiseaza();
+                                cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                                cout<<" pentru a-ti face mutarea.\n ";
+                                cin>>r;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if(n==6)
+            {
+                if(bad==1)
+                {
+                    if(MakeProblems(symbol))
+                {
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+                else
+                {
+                    HumanInsertion(3,'0');
+                    system("cls");
+                    afiseaza();
+                    cout<<" Calculatorul a facut aceasta miscare. Introdu orice caracter\n";
+                    cout<<" pentru a-ti face mutarea.\n ";
+                    cin>>r;
+                }
+                }
+                else
+                {
+                ComputerInsertion('0',2);
+                }
+            }
+            if(n==8)
+            {
+
+                ComputerInsertion('0',2);
+            }
+            if(n==9)
+            ComputerInsertion('X',2);
+        }
+    }
+}
+
 int main()
 {
 
