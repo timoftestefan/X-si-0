@@ -402,6 +402,792 @@ void ComputerInsertion(char symbol,int level)
     }
 }
 
+bool PrintWinner1()
+{
+    s1=p;s2=com;
+    if(a[0][0]!=-1)
+    {
+        if(a[0][0]==a[0][1]&&a[0][2]==a[0][0])
+            {
+
+                if(a[0][0]==0)
+                {
+                    if(c=='0')
+                    {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+
+                    }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                p++;
+                s1=p;
+                s2=com;
+                system("cls");
+                afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                }
+            }
+            return 1;
+            }
+        if(a[0][0]==a[1][0]&&a[0][0]==a[2][0])
+           {
+               if(a[0][0]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+           }
+           if(a[0][0]==a[1][1]&&a[0][0]==a[2][2])
+           {
+               if(a[0][0]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+           }
+    }
+        if(a[1][1]!=-1)
+        {
+
+        if(a[1][1]==a[0][1]&&a[1][1]==a[2][1])
+            {
+                if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        if(a[1][1]==a[1][0]&&a[1][1]==a[1][2])
+           {
+               if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+           }
+           if(a[1][1]==a[2][0]&&a[0][2]==a[1][1])
+           {
+               if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+           }
+        }
+        if(a[2][2]!=-1)
+            {
+            if(a[2][2]==a[2][1]&&a[2][0]==a[2][2])
+            {
+                if(a[2][2]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        if(a[2][2]==a[0][2]&&a[2][2]==a[1][2])
+           {
+               if(a[2][2]==0)
+                {
+                    if(c=='0')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+
+                }
+                    else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+                else
+                {
+                if(c=='X')
+                {
+                    p++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                cout<<"\n Felicitari, ai castigat in fata calculatorului!\n";
+                }
+                else
+                    {
+                    com++;
+                    s1=p;
+                    s2=com;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Calculatorul a castigat!\n";
+                    }
+                }
+            return 1;
+           }
+        }
+    return 0;
+}
+bool PrintWinner2()
+{
+        if(a[0][0]!=-1)
+    {
+        if(a[0][0]==a[0][1]&&a[0][2]==a[0][0])
+            {
+
+                if(a[0][0]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        if(a[0][0]==a[1][0]&&a[0][0]==a[2][0])
+           {
+               if(a[0][0]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+           }
+           if(a[0][0]==a[1][1]&&a[0][0]==a[2][2])
+           {
+               if(a[0][0]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+           }
+    }
+        if(a[1][1]!=-1)
+        {
+
+        if(a[1][1]==a[0][1]&&a[1][1]==a[2][1])
+            {
+                if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        if(a[1][1]==a[1][0]&&a[1][1]==a[1][2])
+           {
+               if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+           }
+           if(a[1][1]==a[2][0]&&a[0][2]==a[1][1])
+           {
+               if(a[1][1]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+           }
+        }
+            if(a[2][2]!=-1)
+            {
+            if(a[2][2]==a[2][1]&&a[2][0]==a[2][2])
+            {
+                if(a[2][2]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        if(a[2][2]==a[0][2]&&a[2][2]==a[1][2])
+           {
+               if(a[2][2]==0)
+                {
+                    if(c=='0')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+                }
+                    else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+                }
+            else
+            {
+                if(c=='X')
+                {
+                    p1++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 1, ai castigat!\n";
+
+                }
+                else
+                    {
+                    p2++;
+                    s1=p1;
+                    s2=p2;
+                    system("cls");
+                    afiseaza();
+                    cout<<"\n Felicitari, jucatorule cu numarul 2, ai castigat!\n";
+                    }
+            }
+            return 1;
+            }
+        }
+    return 0;
+
+}
+
 int main()
 {
 
