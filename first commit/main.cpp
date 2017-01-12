@@ -401,6 +401,10 @@ void ComputerInsertion(char symbol,int level)
         }
     }
 }
+void PrintEgalitate()
+{
+cout<<" Egalitate!\n";
+}
 
 bool PrintWinner1()
 {
