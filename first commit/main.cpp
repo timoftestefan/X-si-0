@@ -32,6 +32,266 @@ bool Across();
 bool L();
 bool Bad();
 bool Awkward();
+int main()
+{
+    cout << "\n                              X si 0             \n\n";
+    cout << " Cum joci?\n\n" ;
+    cout << " Fiecare casuta este numerotata de la 1 la 9, de la stanga la dreapta,\n";
+    cout << " de sus in jos dupa cum urmeaza:\n\n";
+    cout << "                              |   |   \n";
+    cout << "                            1 | 2 | 3 \n";
+    cout << "                           ___|___|___\n";
+    cout << "                              |   |   \n";
+    cout << "                            4 | 5 | 6 \n";
+    cout << "                           ___|___|___\n";
+    cout << "                              |   |   \n";
+    cout << "                            7 | 8 | 9 \n";
+    cout << "                              |   |   \n\n";
+    cout << " Cand este randul sau, jucatorul va introduce numarul corespunzator \n";
+    cout << " casutei in care vrea sa introduca X-ul sau 0-ul.\n\n";
+    cout << " Doresti sa joci impotriva calculatorului( introdu 1) sau impotriva \n";
+    cout << " altei persoane( introdu 2)?  ";
+    for(int i=0;i<3;i++)
+    for(int j=0;j<3;j++)
+    a[i][j]=-1;
+    int x;
+    char read[255];
+    cin>>read;
+   x=FirstInputVerification(read);
+    int missclicks=0;
+    while (x!=1&&x!=2)
+    {   missclicks++;
+        system("cls");
+    cout<<endl<<endl<<endl;
+    cout << "                          |   |   \n";
+    cout << "                        1 | 2 | 3 \n";
+    cout << "                       ___|___|___\n";
+    cout << "                          |   |   \n";
+    cout << "                        4 | 5 | 6 \n";
+    cout << "                       ___|___|___\n";
+    cout << "                          |   |   \n";
+    cout << "                        7 | 8 | 9 \n";
+    cout << "                          |   |   \n\n";
+        if (missclicks==1)
+            cout<<"             Am verificat deja!"<<endl<<"     Introdu o optiune de joc valida(1 sau 2):"<<endl;
+        else if (missclicks==2)
+            cout<<"             Incearca si un caracter!"<<endl;
+        else if (missclicks==3)
+            cout<<"             Hai totusi sa ne jucam !Doar prin 1 sau 2 ne putem juca!"<<endl;
+        else cout<<"             Introdu o optiune de joc valida(1 sau 2):"<<endl;
+
+    cin>>read;
+  x=FirstInputVerification(read);
+    }
+
+    while(x==1||x==2)
+    {
+        if(x==1)
+    {
+        g1++;
+        s=g1;
+        system("cls");
+        cout<<endl<<endl<<endl;
+        cout << "\n     Alege nivelul de dificultate: \n\n";
+        cout << "     Usor - 1 \n";
+        cout << "     Mediu - 2 \n";
+        cout << "     Imposibil de batut - 3 \n\n ";
+        cin>>difc;
+       nivel=DificultyChoose(difc);
+       int prego;
+      if (nivel==0) prego =0;
+      else prego=1;
+      while(!prego)
+      {
+          system("cls");
+          cout<<endl<<endl<<endl;
+        cout << "\n    Am mai avut aceasta discutie, te rog sa alegi corect nivelul de dificultate: \n\n";
+        cout << "     Usor - 1 \n";
+        cout << "     Mediu - 2 \n";
+        cout << "     Imposibil de batut - 3 \n\n ";
+        cin>>difc;
+        nivel=DificultyChoose(difc);
+        if(nivel==0) prego=0;
+        else prego=1;
+      }
+        system("cls");
+        GameFrame();
+        n=0;
+        ok=0;
+        co=0;
+        bad=0;
+        s1=p;
+        s2=com;
+        y=rand() % 2 + 1;
+        if(y==1)
+        {
+            c='X';
+            d='0';
+        }
+        else
+        {
+            d='X';
+            c='0';
+        }
+        while(ok==0&&n<9)
+        {
+            if(y==1)
+            {
+                system("cls");
+                afiseaza();
+                cout<<"\n Introdu pozitia pe care vrei sa plasezi "<<c<<" ";
+                cin>>trap;
+              z=GeneralInput(trap);
+            if(z){
+                if(a[(z-1)/3][(z+2)%3]==-1)
+                {
+                    n++;
+                    HumanInsertion(z,c);
+                    y=2;
+                }
+                else
+                {
+                    while(a[(z-1)/3][(z+2)%3]!=-1)
+                    {
+                        system("cls");
+                        afiseaza();
+                        cout<<"\n    Introdu o pozitie valida unde vrei sa plasezi "<<c<<" ";
+                        cin>>z;
+                    }
+                    n++;
+                    HumanInsertion(z,c);
+                    y=2;
+                }
+            }
+            }
+            else
+            {
+                n++;
+                ComputerInsertion(d,nivel);
+                y=1;
+            }
+            if(PrintWinner1())
+            {
+                ok=1;
+            }
+        }
+        s1=p;
+        s2=com;
+        if(ok==0)
+        {
+            system("cls");
+            afiseaza();
+            PrintEgalitate();
+        }
+        for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+        a[i][j]=-1;
+        cout<<endl;
+        cout << "      Doresti sa mai joci? Da? Impotriva calculatorului (introdu 1), impotriva altei\n";
+        cout << "   persoane(introdu 2). Nu? Introdu 0.  ";
+        cin>>x;
+        }
+        if(x==2)
+    {
+        g2++;
+        s=g2;
+        system("cls");
+        GameFrame();
+        n=0;
+        ok=0;
+        s1=p1;
+        s2=p2;
+        y=rand() % 2 + 1;
+        if(y==1)
+        {
+            c='X';
+            d='0';
+        }
+        else
+        {
+            d='X';
+            c='0';
+        }
+        while(ok==0&&n<9)
+        {
+            system("cls");
+            if(y==1)
+            {
+                afiseaza();
+                cout<<"\n Jucatorul numarul 1 introdu pozitia pe care vrei sa plasezi "<<c<<" ";
+                cin>>z;
+                if(a[(z-1)/3][(z+2)%3]==-1)
+                {
+                    n++;
+                    HumanInsertion(z,c);
+                    y=2;
+                }
+                else
+                {
+                    while(a[(z-1)/3][(z+2)%3]!=-1)
+                    {
+                        system("cls");
+                        afiseaza();
+                        cout<<"\n Introdu o pozitie valida unde vrei sa plasezi "<<c<<" ";
+                        cin>>z;
+                    }
+                    n++;
+                    HumanInsertion(z,c);
+                    y=2;
+                }
+            }
+            else
+            {
+                afiseaza();
+                cout<<"\n Jucatorul numarul 2 introdu pozitia pe care vrei sa plasezi "<<d<<" ";
+                cin>>z;
+                 if(a[(z-1)/3][(z+2)%3]==-1)
+                {
+                    n++;
+                    HumanInsertion(z,d);
+                    y=1;
+                }
+                else
+                {
+                while(a[(z-1)/3][(z+2)%3]!=-1)
+                    {
+                        system("cls");
+                        afiseaza();
+                        cout<<"\n Introdu o pozitie valida unde vrei sa plasezi "<<d<<" ";
+                        cin>>z;
+                    }
+                n++;
+                HumanInsertion(z,d);
+                y=1;
+                }
+            }
+            if(PrintWinner2())
+            {
+
+                ok=1;
+            }
+        }
+        s1=p1;
+        s2=p2;
+        if(ok==0)
+        {
+            system("cls");
+            afiseaza();
+            PrintEgalitate();
+        }
+        for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+        a[i][j]=-1;
+        cout << " Doresti sa mai joci? Da? Impotriva calculatorului (introdu 1), impotriva altei\n";
+        cout << " persoane(introdu 2). Nu? Introdu 0.  ";
+        cin>>x;
+    }
+
+    }
+    system("cls");
+    return 0;
+}
+
 int FirstInputVerification (char read[])
 {
     if(strlen(read)>1) return 0;
