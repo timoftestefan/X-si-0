@@ -32,6 +32,41 @@ bool Across();
 bool L();
 bool Bad();
 bool Awkward();
+int FirstInputVerification (char read[])
+{
+    if(strlen(read)>1) return 0;
+    else if (read[0]=='1') return 1;
+        else if (read[0]=='2') return 2;
+        else return 0;
+}
+
+int GeneralInput(char input[])
+{
+    if (strlen(input)>1) return 0;
+    else if (input[0]=='0') return 0;
+     else if (input[0]=='1') return 1;
+      else if (input[0]=='2') return 2;
+       else if (input[0]=='3') return 3;
+        else if (input[0]=='4') return 4;
+         else if (input[0]=='5') return 5;
+          else if (input[0]=='6') return 6;
+           else if (input[0]=='7') return 7;
+            else if (input[0]=='8') return 8;
+             else if (input[0]=='9') return 9;
+             else return 0;
+}
+int DificultyChoose(char difc[])
+{
+    if(strlen(difc)>1) return 0;
+        else if (difc[0]=='1') return 1;
+            else if (difc[0]=='2') return 2;
+                else if (difc[0]=='3') return 3;
+                    else return 0;
+}
+
+
+
+
 int main()
 {
     cout << "\n                              X si 0             \n\n";
@@ -292,37 +327,6 @@ int main()
     return 0;
 }
 
-int FirstInputVerification (char read[])
-{
-    if(strlen(read)>1) return 0;
-    else if (read[0]=='1') return 1;
-        else if (read[0]=='2') return 2;
-        else return 0;
-}
-
-int GeneralInput(char input[])
-{
-    if (strlen(input)>1) return 0;
-    else if (input[0]=='0') return 0;
-     else if (input[0]=='1') return 1;
-      else if (input[0]=='2') return 2;
-       else if (input[0]=='3') return 3;
-        else if (input[0]=='4') return 4;
-         else if (input[0]=='5') return 5;
-          else if (input[0]=='6') return 6;
-           else if (input[0]=='7') return 7;
-            else if (input[0]=='8') return 8;
-             else if (input[0]=='9') return 9;
-             else return 0;
-}
-int DificultyChoose(char difc[])
-{
-    if(strlen(difc)>1) return 0;
-        else if (difc[0]=='1') return 1;
-            else if (difc[0]=='2') return 2;
-                else if (difc[0]=='3') return 3;
-                    else return 0;
-}
 
 void HumanInsertion(int pos,char symbol)
 {
@@ -1451,9 +1455,344 @@ bool PrintWinner2()
     return 0;
 
 }
-
-int main()
+bool MakeProblems(char symbol)
 {
-
+    int x,i,j;
+    if(symbol=='X')
+    x=1;
+    else
+    x=0;
+    if((a[0][0]==a[1][1]&&a[2][2]==-1&&a[0][0]==x)
+       ||(a[2][2]==a[1][1]&&a[0][0]==-1&&a[2][2]==x)
+       ||(a[0][0]==a[2][2]&&a[1][1]==-1&&a[2][2]==x)
+       )
+       {
+           i=0;
+           while(a[i][i]==x)
+           {
+               i++;
+           }
+           HumanInsertion(i*4+1,symbol);
+           return 1;
+       }
+    if((a[0][2]==a[1][1]&&a[2][0]==-1&&a[0][2]==x)
+       ||(a[2][0]==a[1][1]&&a[0][2]==-1&&a[2][0]==x)
+       ||(a[0][2]==a[2][0]&&a[1][1]==-1&&a[2][0]==x)
+       )
+       {
+           i=0;
+           while(a[i][2-i]==x)
+           {
+               i++;
+           }
+           HumanInsertion(i*2+3,symbol);
+           return 1;
+       }
+       for(i=0;i<3;i++)
+       {
+        if((a[i][0]==a[i][1]&&a[i][2]==-1&&a[i][0]==x)
+       ||(a[i][2]==a[i][1]&&a[i][0]==-1&&a[i][2]==x)
+       ||(a[i][0]==a[i][2]&&a[i][1]==-1&&a[i][2]==x)
+       )
+       {
+           j=0;
+           while(a[i][j]==x)
+           {
+               j++;
+           }
+           HumanInsertion((3*i+j+1),symbol);
+           return 1;
+       }
+       }
+        for(i=0;i<3;i++)
+       {
+        if((a[0][i]==a[1][i]&&a[2][i]==-1&&a[0][i]==x)
+       ||(a[2][i]==a[1][i]&&a[0][i]==-1&&a[2][i]==x)
+       ||(a[0][i]==a[2][i]&&a[1][i]==-1&&a[2][i]==x)
+       )
+       {
+           j=0;
+           while(a[j][i]==x)
+           {
+               j++;
+           }
+           HumanInsertion((3*j+i+1),symbol);
+           return 1;
+       }
+       }
+       return 0;
+}
+bool SolveProblems(char symbol)
+{
+    int x,i,j;
+    if(symbol=='X')
+    x=1;
+    else
+    x=0;
+    x=1-x;
+    if((a[0][0]==a[1][1]&&a[2][2]==-1&&a[0][0]==x)
+       ||(a[2][2]==a[1][1]&&a[0][0]==-1&&a[2][2]==x)
+       ||(a[0][0]==a[2][2]&&a[1][1]==-1&&a[2][2]==x)
+       )
+       {
+           i=0;
+           while(a[i][i]==x)
+           {
+               i++;
+           }
+           HumanInsertion(i*4+1,symbol);
+           return 1;
+       }
+    if((a[0][2]==a[1][1]&&a[2][0]==-1&&a[0][2]==x)
+       ||(a[2][0]==a[1][1]&&a[0][2]==-1&&a[2][0]==x)
+       ||(a[0][2]==a[2][0]&&a[1][1]==-1&&a[2][0]==x)
+       )
+       {
+           i=0;
+           while(a[i][2-i]==x)
+           {
+               i++;
+           }
+           HumanInsertion(i*2+3,symbol);
+           return 1;
+       }
+       for(i=0;i<3;i++)
+       {
+        if((a[i][0]==a[i][1]&&a[i][2]==-1&&a[i][0]==x)
+       ||(a[i][2]==a[i][1]&&a[i][0]==-1&&a[i][2]==x)
+       ||(a[i][0]==a[i][2]&&a[i][1]==-1&&a[i][2]==x)
+       )
+       {
+           j=0;
+           while(a[i][j]==x)
+           {
+               j++;
+           }
+           HumanInsertion((3*i+j+1),symbol);
+           return 1;
+       }
+       }
+        for(i=0;i<3;i++)
+       {
+        if((a[0][i]==a[1][i]&&a[2][i]==-1&&a[0][i]==x)
+       ||(a[2][i]==a[1][i]&&a[0][i]==-1&&a[2][i]==x)
+       ||(a[0][i]==a[2][i]&&a[1][i]==-1&&a[2][i]==x)
+       )
+       {
+           j=0;
+           while(a[j][i]==x)
+           {
+               j++;
+           }
+           HumanInsertion((3*j+i+1),symbol);
+           return 1;
+       }
+       }
     return 0;
 }
+void Corner()
+{
+    if(a[0][0]==-1)
+    {
+        HumanInsertion(1,'0');
+    }
+    else
+        if(a[0][2]==-1)
+        {
+        HumanInsertion(3,'0');
+        }
+        else
+        if(a[2][0]==-1)
+        {
+        HumanInsertion(7,'0');
+        }
+        else
+        if(a[2][2]==-1)
+        {
+        HumanInsertion(9,'0');
+        }
+}
+bool Cross()
+{
+    if(a[0][1]==0)
+    {
+        HumanInsertion(7,'X');
+
+        return 1;
+    }
+    if(a[1][0]==0)
+    {
+        HumanInsertion(9,'X');
+
+        return 1;
+    }
+    if(a[2][1]==0)
+    {
+        HumanInsertion(1,'X');
+
+        return 1;
+    }
+    if(a[1][2]==0)
+    {
+        HumanInsertion(1,'X');
+
+        return 1;
+    }
+    return 0;
+}
+void ChosenOne()
+{
+    if(a[0][0]==0)
+    {
+        co=1;
+        HumanInsertion(9,'X');
+    }
+    if(a[2][2]==0)
+    {
+        co=1;
+        HumanInsertion(1,'X');
+    }
+    if(a[0][2]==0)
+    {
+        co=1;
+        HumanInsertion(7,'X');
+    }
+    if(a[2][0]==0)
+    {
+        co=1;
+        HumanInsertion(3,'X');
+    }
+}
+bool SemiCross()
+{
+    if(a[0][2]==0)
+    {
+        if(a[1][0]==0)
+        HumanInsertion(9,'X');
+        if(a[2][1]==0)
+        HumanInsertion(1,'X');
+
+        return 1;
+    }
+    if(a[0][0]==0)
+    {
+        if(a[1][2]==0)
+        HumanInsertion(7,'X');
+        if(a[2][1]==0)
+        HumanInsertion(3,'X');
+
+        return 1;
+    }
+    if(a[2][0]==0)
+    {
+        if(a[1][2]==0)
+        HumanInsertion(1,'X');
+        if(a[0][1]==0)
+        HumanInsertion(9,'X');
+
+        return 1;
+    }
+    if(a[2][2]==0)
+    {
+        if(a[1][0]==0)
+        HumanInsertion(3,'X');
+        if(a[0][1]==0)
+        HumanInsertion(7,'X');
+
+        return 1;
+    }
+    return 0;
+}
+bool Across()
+{
+    if(a[0][0]==1&&a[1][1]==0&&a[2][2]==1)
+    {
+        HumanInsertion(2,'0');
+        return 1;
+    }
+    if(a[2][2]==1&&a[1][1]==0&&a[0][0]==1)
+    {
+        HumanInsertion(2,'0');
+        return 1;
+    }
+    if(a[0][2]==1&&a[1][1]==0&&a[2][0]==1)
+    {
+        HumanInsertion(2,'0');
+        return 1;
+    }
+    if(a[2][0]==1&&a[1][1]==0&&a[0][2]==1)
+    {
+        HumanInsertion(2,'0');
+        return 1;
+    }
+    return 0;
+}
+
+bool L()
+{
+    if(a[0][1]==a[1][0]&&a[0][1]==1)
+    {
+        HumanInsertion(1,'0');
+        return 1;
+    }
+    if(a[2][1]==a[1][2]&&a[2][1]==1)
+    {
+        HumanInsertion(9,'0');
+        return 1;
+    }
+    if(a[0][1]==a[1][2]&&a[0][1]==1)
+    {
+        HumanInsertion(3,'0');
+        return 1;
+    }
+    if(a[2][1]==a[1][0]&&a[2][1]==1)
+    {
+        HumanInsertion(7,'0');
+        return 1;
+    }
+    return 0;
+}
+bool Bad()
+{
+    if(a[1][1]==0&&a[0][1]==1&&a[2][1]==1)
+    {
+        bad=1;
+        HumanInsertion(6,'0');
+        return 1;
+    }
+    if(a[1][1]==0&&a[1][0]==1&&a[1][2]==1)
+    {
+        bad=1;
+        HumanInsertion(2,'0');
+        return 1;
+    }
+    return 0;
+}
+bool Awkward()
+{
+    if(a[0][0]==1&&(a[1][2]==1||a[2][1]==1))
+    {
+        HumanInsertion(9,'0');
+        return 1;
+    }
+    if(a[0][2]==1&&(a[1][0]==1||a[2][1]==1))
+    {
+        HumanInsertion(7,'0');
+        return 1;
+    }
+    if(a[2][0]==1&&(a[1][2]==1||a[0][1]==1))
+    {
+        HumanInsertion(3,'0');
+        return 1;
+    }
+    if(a[2][2]==1&&(a[0][1]==1||a[1][0]==1))
+    {
+        HumanInsertion(1,'0');
+        return 1;
+    }
+    return 0;
+}
+
+
+
+
