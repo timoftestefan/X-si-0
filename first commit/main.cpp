@@ -1792,7 +1792,3 @@ bool Awkward()
     }
     return 0;
 }
-
-
-
-
